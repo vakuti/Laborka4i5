@@ -1,0 +1,14 @@
+function dtheta = kinodwrotna(t,theta)
+global J;
+global V;
+theta1 = theta(1);
+theta2 = theta(2);
+theta3 = theta(3);
+theta4 = theta(4);
+
+ jakobian = subs(J);
+ J1=double(jakobian);
+
+%  dtheta = pinv(J1(1:2,1:4))*V;
+ dtheta = pinv(J1(1:2,1:4))*[0.002;0];
+ end
