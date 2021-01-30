@@ -1,0 +1,26 @@
+
+ x0 = pozycje(3:6)
+
+p4_poczatkowe = kinematyka(x0);
+
+ [t, theta] = ode45(@kinematyka_odwrotna, 0:0.01:1, x0);
+
+for i = 1:length(t)
+ster1 = rospublisher('/joint1_position/command');
+ster2 = rospublisher('/joint2_position/command');
+ster3 = rospublisher('/joint3_position/command');
+ster4 = rospublisher('/joint4_position/command');
+wiad1 = rosmessage( ster1 )
+wiad1.Data = theta(i,1)
+wiad2 = rosmessage( ster2 )
+wiad2.Data = theta(i,2) 
+wiad3 = rosmessage( ster3 )
+wiad3.Data = theta(i,3);
+wiad4 = rosmessage( ster4 )
+wiad4.Data = theta(i,4)
+    send( ster1, wiad1 );
+    send( ster2, wiad2 );
+    send( ster3, wiad3 );
+    send( ster4, wiad4 );
+end
+
