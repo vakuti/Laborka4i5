@@ -9,8 +9,11 @@ theta4 = theta(4);
  jakobian = subs(J);
  J1=double(jakobian);
 
-   % sterowanie poprzez zadanie wektora prędkości
- dtheta = pinv(J1(1:3,1:4))*[0.005;0:0];
- % stworzenie okręgu ostatnim członem robota
- % dtheta = pinv(J1(1:3,1:4))*[cos(t)/30;sin(t)/30:0];
+%Różne sterowania robotem za pomocą jakobianu
+    % sterowanie poprzez zadanie wektora prędkości
+   dtheta = pinv(J1(1:3,1:4))*[0.005;0:0];
+   % stworzenie okręgu ostatnim członem robota
+   % dtheta = pinv(J1(1:3,1:4))*[cos(t)/30;sin(t)/30:0];
+   % dojezdzanie do punktu zadanego
+   %dtheta = pinv(J1(1:3,1:4))*V(1:3);
  end
