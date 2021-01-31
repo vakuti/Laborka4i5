@@ -20,5 +20,5 @@ wiad4.Data = theta(i,4)
     send( ster2, wiad2 );
     send( ster3, wiad3 );
     send( ster4, wiad4 );
-    p = kinematyka(links, [wiad1.Data,wiad2.Data,wiad3.Data,wiad4.Data])
+    p = kin(links, [wiad1.Data,wiad2.Data,wiad3.Data,wiad4.Data])
 end
