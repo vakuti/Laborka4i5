@@ -1,6 +1,8 @@
 position = joinstates.LatestMessage.Position;
 x0 = position(3:6)
-
+ppos = kin(links, x0);
+Val = ppos(:,5);
+PV = [ 0; 0.12; 0.24; 0.81]
 [t, theta] = ode45(@kinematyka_odwrotna, 0:0.01:1, x0);
 
 for i = 1:length(t)
