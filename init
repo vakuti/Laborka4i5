@@ -29,7 +29,7 @@ for i=1:4
     links(i).sdaszek = daszek(links(i).s);
 end;
 
-odp = rossubscriber("/joint_states");
+joinstates = rossubscriber("/joint_states");
 syms theta1 theta2 theta3 theta4;
 [p,A1,A2,A3,A4] = kin( links, [theta1, theta2, theta3, theta4] );
 
